@@ -54,8 +54,9 @@ NOTE : Click on "Restore to Default" for set all settings to default exclude Goo
 If have you any doubt then send mail frequently on raghu@tes-india.com
 
 == Screenshots ==
- 1. This screen shot description corresponds to Back-End.
- 2. This screen shot description corresponds to Front-End.
+
+  1. This screen shot description corresponds to Back-End.
+  2. This screen shot description corresponds to Front-End.
 
 == Changelog ==
 = 1.0.1 =
