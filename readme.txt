@@ -1,5 +1,5 @@
 === MyTube PlayList ===
-Contributors: MyTube PlayList
+Contributors: TechnoEmpire System
 Donate link: 
 Tags: Wordpress plugin, MyTube, PlayList, YouTube
 Requires at least: 3.0
