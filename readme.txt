@@ -86,6 +86,7 @@ NOTE : Click on "Restore to Default" for set all settings to default exclude Goo
 If have you any doubt then send mail frequently on raghu@tes-india.com
 
 == Screenshots ==
+
  1. This screen shot description corresponds to Global Settings.
  2. This screen shot description corresponds to Create Playlist by channel ID or video ID.
  3. This screen shot description corresponds to List of Playlist created by you.
