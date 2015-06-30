@@ -1,0 +1,68 @@
+.wrapMyTube{
+	background: #fff none repeat scroll 0 0;
+    border-radius: 5px;
+    padding: 20px 40px;	
+	margin: 10px 20px 0 2px;
+}
+.wrapMyTube h2 {
+    border-bottom: 1px solid #1e8cbe;
+    color: #1e8cbe;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.83em 0;
+    padding-bottom: 7px;
+}
+.wrapMyTube p.footer {
+	border-top: 1px solid #ccc;
+	padding-top: 5px;	
+}
+.wrapMyTube .notice, div.error, div.updated, div.update-nag{
+	box-shadow: 2px 1px 1px 2px rgba(0, 0, 0, 0.1);
+	margin:0;
+}
+.h2RightSpanSection{
+	float:right;	
+}
+.h2RightSpanSection input[type="submit"], .h2RightSpanSection input[type="text"], .h2RightSpanSection input[type="button"]{
+	height:26px !important;
+}
+.form-table th{
+	padding:20px 10px;	
+}
+.form-table td{
+	vertical-align:top;	
+}
+.top-bottom{
+	padding:20px 0;	
+}
+.errMsg{
+	color:#F33;	
+}
+.mytybe-button-danger{
+	background:#C00 !important;
+	color: #fff !important;
+	box-shadow: 0 1px 0 #a00 inset, 0 1px 0 rgba(0, 0, 0, 0.15) !important;
+	border-color: #f00 !important;
+	border-style: none !important;
+}
+.mytybe-button-danger:hover{
+	background:#a00 !important;
+	color: #fff !important;
+	border-color: #f00 !important;
+	border-style: none !important;
+}
+.mytube-col-2{
+	float:left;
+	width:45%;	
+}
+.mytube-col-10{
+	float:left;
+	width:10%;	
+}
+.mytube-clear{
+	clear:both;	
+}
+.h2RightSpanSection a.rateLink{
+	font-weight: bold;
+    text-decoration: none;	
+}
