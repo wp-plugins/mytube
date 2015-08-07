@@ -1,6 +1,6 @@
 <?php
-	require_once("../../../../wp-blog-header.php");
-	require_once("../../../../wp-config.php");
+	require_once("../../../../../wp-blog-header.php");
+	require_once("../../../../../wp-config.php");
 	session_start();
 	error_reporting(0);
 	

@@ -1,3 +1,86 @@
+<?php
+	require_once("../../../../../wp-blog-header.php");
+	require_once("../../../../../wp-config.php");
+	
+	global $wpdb;
+
+   	$mytubeListWrapper_li = "border:1px solid #ccc;";
+    if(get_option('mytube_border_color')!=""){
+		$mytubeListWrapper_li = "border:1px solid ".get_option('mytube_border_color').";";
+	}
+	
+	$mytubeListWrapper_li_a_1 = "font-size: 14px;";
+    if(get_option('mytube_text_size')!=""){
+		$mytubeListWrapper_li_a_1 = "font-size:".get_option('mytube_text_size')."px;";
+    }
+	
+	$mytubeListWrapper_li_a_2 = "color:#c90808;";
+    if(get_option('mytube_text_size')!=""){
+		$mytubeListWrapper_li_a_2 =  "color:".get_option('mytube_text_color').";";
+    }
+	
+	$mytubeListWrapper_li_a_hover = "color:#333;";
+    if(get_option('mytube_text_hover_color')!=""){
+	    $mytubeListWrapper_li_a_hover = "color:".get_option('mytube_text_hover_color').";";
+    }
+	
+	$mytubeListWrapper_li_mytubeListView_1 = "background:#941414;";
+	if(get_option('mytube_view_bg_color')!=""){
+		$mytubeListWrapper_li_mytubeListView_1 = "background:".get_option('mytube_view_bg_color').";";
+	}
+	
+	$mytubeListWrapper_li_mytubeListView_2 = "color:#fff;";
+	if(get_option('mytube_view_text_color')!=""){
+		$mytubeListWrapper_li_mytubeListView_2 = "color:".get_option('mytube_view_text_color').";";
+	}
+	
+	$paginationWrap_a_1 = "border:1px solid #ccc;";
+	if(get_option('mytube_pg_border_color')!=""){
+		$paginationWrap_a_1 = "border:1px solid ".get_option('mytube_pg_border_color').";";
+	}
+	
+	$paginationWrap_a_2 = "color:#A3A3A3;";
+	if(get_option('mytube_pg_text_color')!=""){
+		$paginationWrap_a_2 = "color:".get_option('mytube_pg_text_color').";";
+	}
+	
+	$paginationWrap_a_3 = "";
+	if(get_option('mytube_pg_bg_color')!=""){
+		$paginationWrap_a_3 = "background:".get_option('mytube_pg_bg_color').";";
+	}
+	
+	$paginationWrap_a_hover_1 = "background:#FFF0F0;";
+	if(get_option('mytube_pg_hover_bg_color')!=""){
+		$paginationWrap_a_hover_1 = "background:".get_option('mytube_pg_hover_bg_color').";";
+	}
+	
+	$paginationWrap_a_hover_2 = "border-color:#D3B6B6;";
+	if(get_option('mytube_pg_border_hover_color')!=""){
+		$paginationWrap_a_hover_2 = "border-color:".get_option('mytube_pg_border_hover_color').";";
+	}
+	
+	$paginationWrap_a_hover_3 = "color:#941414;";
+	if(get_option('mytube_pg_hover_text_color')!=""){
+		$paginationWrap_a_hover_3 = "color:".get_option('mytube_pg_hover_text_color').";";
+	}
+	
+	$paginationWrap_a_active_1 = "background:#941414;";
+	if(get_option('mytube_pg_act_bg_color')!=""){
+		$paginationWrap_a_active_1 = "background:".get_option('mytube_pg_act_bg_color').";";
+	}
+	
+	$paginationWrap_a_active_2 = "border-color:#941414;";
+	if(get_option('mytube_pg_act_bg_color')!=""){
+		$paginationWrap_a_active_2 = " border-color:".get_option('mytube_pg_act_bg_color').";";
+	}
+		
+	$paginationWrap_a_active_3 = "color:#fff;";
+	if(get_option('mytube_pg_act_text_color')!=""){
+		$paginationWrap_a_active_3 = "color:".get_option('mytube_pg_act_text_color').";";
+	}
+	
+	
+	$custom_css = "
 .mytubeListWrapper{
 	width:100%;
 	overflow:hidden;
@@ -9,10 +92,9 @@
 	width:32%;
 	float:left;
 	margin-right:2%;
-	border:1px solid #ccc;
-    <?php if(get_option('mytube_border_color')!=""){ ?>
-	    border:1px solid <?php echo get_option('mytube_border_color'); ?>;
-    <?php } ?>
+	
+	".$mytubeListWrapper_li."	
+	
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-o-box-sizing:border-box;
@@ -60,21 +142,15 @@
 }
 .mytubeListWrapper li a{
 	display:block;
-	font-size: 14px;
-    <?php if(get_option('mytube_text_size')!=""){ ?>
-	    font-size:<?php echo get_option('mytube_text_size'); ?>px;
-    <?php } ?>
+	
+	".$mytubeListWrapper_li_a_1."
+	
 	line-height: 18px;
-    color:#c90808;
-	<?php if(get_option('mytube_text_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_text_color'); ?>;
-    <?php } ?>
+    
+	".$mytubeListWrapper_li_a_2."
 }
 .mytubeListWrapper li a:hover{
-	color:#333;
-    <?php if(get_option('mytube_text_hover_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_text_hover_color'); ?>;
-    <?php } ?>
+	".$mytubeListWrapper_li_a_hover."
 	text-decoration:underline;
 }
 .mytubeListWrapper li span{
@@ -88,15 +164,13 @@
 	right:0;
 	top:0;
 	padding:5px 10px;
-	background:#941414;
-    <?php if(get_option('mytube_view_bg_color')!=""){ ?>
-	    background:<?php echo get_option('mytube_view_bg_color'); ?>;
-    <?php } ?>
+	
+	".$mytubeListWrapper_li_mytubeListView_1."
+	
 	padding:0 5px;
-	color:#fff;
-    <?php if(get_option('mytube_view_text_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_view_text_color'); ?>;
-    <?php } ?>
+	
+    ".$mytubeListWrapper_li_mytubeListView_2."
+	
 	height:30px;
 	line-height:30px;
 	text-align:center;
@@ -111,51 +185,31 @@
 	min-width:10px;
 	text-align:center;
 	padding:7px 8px;
-	border:1px solid #ccc;
-    <?php if(get_option('mytube_pg_border_color')!=""){ ?>
-	    border:1px solid <?php echo get_option('mytube_pg_border_color'); ?>;
-    <?php } ?>
+	
+    ".$paginationWrap_a_1."
+	
 	border-radius:3px;
-	color:#A3A3A3;
-	<?php if(get_option('mytube_pg_text_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_pg_text_color'); ?>;
-    <?php } ?>
+	
+	".$paginationWrap_a_2."
+	
 	margin:0 5px;
 	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
 	text-decoration:none;
-    <?php if(get_option('mytube_pg_bg_color')!=""){ ?>
-	    background:<?php echo get_option('mytube_pg_bg_color'); ?>;
-    <?php } ?>
 	
+    ".$paginationWrap_a_3."
 }
+
 .paginationWrap a:hover{
-	background:#FFF0F0;
-	<?php if(get_option('mytube_pg_hover_bg_color')!=""){ ?>
-	    background:<?php echo get_option('mytube_pg_hover_bg_color'); ?>;
-    <?php } ?>
-	border-color:#D3B6B6;
-	<?php if(get_option('mytube_pg_border_hover_color')!=""){ ?>
-	    border-color:<?php echo get_option('mytube_pg_border_hover_color'); ?>;
-    <?php } ?>
-	color:#941414;
-    <?php if(get_option('mytube_pg_hover_text_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_pg_hover_text_color'); ?>;
-    <?php } ?>
+	".$paginationWrap_a_hover_1."
+	".$paginationWrap_a_hover_2."
+	".$paginationWrap_a_hover_3."
 }
 .paginationWrap a.active{
-	background:#941414;
-	<?php if(get_option('mytube_pg_act_bg_color')!=""){ ?>
-	    background:<?php echo get_option('mytube_pg_act_bg_color'); ?>;
-    <?php } ?>
-	border-color:#941414;
-    <?php if(get_option('mytube_pg_act_bg_color')!=""){ ?>
-	    border-color:<?php echo get_option('mytube_pg_act_bg_color'); ?>;
-    <?php } ?>
-	color:#fff;
-    <?php if(get_option('mytube_pg_act_text_color')!=""){ ?>
-	    color:<?php echo get_option('mytube_pg_act_text_color'); ?>;
-    <?php } ?>
+	
+	".$paginationWrap_a_active_1."
+	".$paginationWrap_a_active_2."
+	".$paginationWrap_a_active_3."
 	
 }
 
@@ -174,17 +228,6 @@
 	}
 }
 @media screen and (max-width:768px){
-	/*
-	.mytubeListWrapper li,
-	.mytubeListWrapper li:nth-child(2n+2),
-	.mytubeListWrapper li:nth-child(3n+3){
-		width:32%;
-		margin-right:2%;
-	}
-	.mytubeListWrapper li:nth-child(3n+3){
-		margin-right:0;
-	}
-	*/
 	.vimeoVid li {
 		height: 245px !important;
 	}
@@ -208,3 +251,4 @@
 		height: auto !important;
 	}
 }
+";

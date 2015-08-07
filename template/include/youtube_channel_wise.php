@@ -1,4 +1,7 @@
 <?php
+
+	global $permalink,$playList_ID,$itm,$toalVideos;
+	
 	if($channelid==""){
 		$channelid = $mytube_channelid;
 	}
@@ -24,14 +27,14 @@
 	$prevPage = $json->{'prevPageToken'};
 	
 	if(count($_GET)<1){
-		$qSign = MyTube_get_request_url().'?';
+		$qSign = $this->MyTube_get_request_url().'?';
 	}
 	else{
-		$qSign1 = MyTube_get_request_url();
+		$qSign1 = $this->MyTube_get_request_url();
 		if(isset($pageTokenNP)){
 			$qSign = strstr($qSign1,"paget",true);
 		}else{
-			$qSign = MyTube_get_request_url().'&';
+			$qSign = $this->MyTube_get_request_url().'&';
 		}
 	}	
 		
@@ -64,32 +67,30 @@
 		}
 	}
 	if($pagination_position=="both" || $pagination_position=="top"){
-		MyTube_Pagination($numPages,$pageTokenNP,$qSign,$nextPage,$prevPage);
+		$this->MyTube_Pagination($numPages,$pageTokenNP,$qSign,$nextPage,$prevPage);
 	}
 	
-?>
-	<ul class="mytubeListWrapper <?php echo $classColumns; ?>" >
-<?php
+
+	/** @Hook Refer function start_wrapper */
+	do_action('mytube_youtube_playlist_before');
+	
 	$permalink = get_permalink( $pageid );
 	foreach($items as $itm){
 		$playList_ID = $itm->{'id'};
 		
 		$toalVideos = $itm->{'contentDetails'}->{'itemCount'};
 		if($toalVideos==""){$toalVideos=0;}
-	?>
-		<li>
-    		<a href="<?php echo $permalink.'&playlistid='.$playList_ID; ?>" target="_new" title="<?php echo $itm->{'snippet'}->{'title'}.' [Videos : '.$toalVideos.']'; ?> ">
-    			<img src="<?php echo $itm->{'snippet'}->{'thumbnails'}->{'medium'}->{'url'}; ?>">
-				<?php echo $itm->{'snippet'}->{'title'}; ?>
-                [<?php echo $toalVideos; ?>]
-            </a>
-		</li>
-    <?php
+	
+		/** @Hook Refer function list_youtube_data */
+		do_action('mytube_youtube_channel_data');
+
 	}
-?>
-	</ul>
-<?php
+	
+	/** @Hook Refer function stop_wrapper */
+	do_action('mytube_youtube_playlist_after');	
+
+
 	if($pagination_position=="both" || $pagination_position=="bottom"){
-		MyTube_Pagination($numPages,$pageTokenNP,$qSign,$nextPage,$prevPage);
+		$this->MyTube_Pagination($numPages,$pageTokenNP,$qSign,$nextPage,$prevPage);
 	}
 ?>

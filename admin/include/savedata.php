@@ -13,28 +13,7 @@
 
 	/***** Add new Groups *****/
 	if(isset($_REQUEST['mtSaveSettings'])){
-		global $plugin_dir_name,$wpdb;
-		/*$mytube_apikey = $_POST['mytube_apikey'];
-		$mytube_playlistid = $_POST['mytube_playlistid'];
-		$mytube_channelid = $_POST['mytube_channelid'];
-		$mytube_vimeo_channel_id = $_POST['mytube_vimeo_channel_id'];
-		$mytube_open_type = $_POST['mytube_open_type'];
-		$mytube_column = $_POST['mytube_column'];
-		$mytube_viewsCounter = $_POST['mytube_viewsCounter'];
-		$mytube_videoDuration = $_POST['mytube_videoDuration'];
-		$mytube_maxResults = $_POST['mytube_maxResults'];
-		$mytube_pagination_type = $_POST['mytube_pagination_type'];
-		$mytube_pagination_position = $_POST['mytube_pagination_position'];
-		$mytube_text_color = $_POST['mytube_text_color'];
-		$mytube_text_hover_color = $_POST['mytube_text_hover_color'];
-		$mytube_view_text_color = $_POST['mytube_view_text_color'];
-		$mytube_view_bg_color = $_POST['mytube_view_bg_color'];
-		$mytube_border_color = $_POST['mytube_border_color'];
-		$mytube_text_size = $_POST['mytube_text_size'];
-		$mytube_pg_bg_color = $_POST['mytube_pg_bg_color'];
-		$mytube_pg_text_color = $_POST['mytube_pg_text_color'];
-		$mytube_pg_border_color = $_POST['mytube_pg_border_color'];
-		$mytube_pg_border_hover_color = $_POST['mytube_pg_border_hover_color'];*/
+		global $mtpl_plugin_dir_name,$wpdb;
 		
 		update_option( 'mytube_apikey', 				$_POST['mytube_apikey'] );
 		update_option( 'mytube_playlistid', 			$_POST['mytube_playlistid'] );
@@ -69,7 +48,7 @@
 		exit;
 	}
 	if(isset($_REQUEST['mtRestoreSettings'])){
-		global $plugin_dir_name,$wpdb;
+		global $mtpl_plugin_dir_name,$wpdb;
 		update_option( 'mytube_playlistid', '' );
 		update_option( 'mytube_channelid', '' );
 		update_option( 'mytube_vimeo_channel_id', '' );

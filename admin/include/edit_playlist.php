@@ -1,10 +1,11 @@
 <?php
-	$icon_url = plugin_dir_url( __FILE__ ).'../assets/images/menu-icon.png';
-	$closeicon = plugin_dir_url( __FILE__ ).'../assets/images/close.png';
-	$youtube_icon_url = plugin_dir_url( __FILE__ ).'../assets/images/youtube.gif';
-	$vimeo_icon_url = plugin_dir_url( __FILE__ ).'../assets/images/vimeo_icon.png'; 
+	global $wpdb,$current_user,$mtpl_plugin_dir_name,$mtpl_num_rec_per_page,$mtpl_loader,$mtpl_icon_url,$youtube_icon_url,$vimeo_icon_url,$css_icon_url,$mtpl_folder;
 	
-	global $wpdb,$current_user,$plugin_dir_name,$num_rec_per_page,$loader;
+	$mtpl_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/menu-icon.png';
+	$youtube_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/youtube.gif';
+	$vimeo_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/vimeo_icon.png'; 
+	$css_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/css-24.ico'; 
+	
 	$playlistid = $_GET['playlistid'];
 ?>
 <div class="wrapMyTube">
@@ -24,7 +25,7 @@
     
 	<form method="post" action="?page=mytube_savedata" name="frmVideos" id="frmVideos">
     	<h2>
-        	<img src="<?php echo $icon_url; ?>" /> Update PlayList 
+        	<img src="<?php echo $mtpl_icon_url; ?>" /> Update PlayList 
 		</h2>
     	<?php
 			$sqlplaylistid = $wpdb->prepare("SELECT `id`,`name` FROM `".$wpdb->prefix . "mytube_playlist` WHERE `playlistid`='".$playlistid."'"); 

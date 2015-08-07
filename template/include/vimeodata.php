@@ -1,4 +1,7 @@
 <?php
+
+	global $openType,$vID,$vTitle,$vDuration,$vThumbnail,$videoDuration,$viewsCounter,$vVideoViews;
+	
 	extract(shortcode_atts(array(
 		'channelid' => '',
 		'columns' => $displayColumns,
@@ -15,7 +18,7 @@
 	else if($columns==4){ $classColumns = "mytubeListFour"; }
 	else{ $classColumns = $defaultColumns; }
 	
-	/***** Vimeo API *****/
+/***** Vimeo API *****/
 	if($channelid==""){
 		$channelid = $mytube_vimeo_channel_id;	
 	}
@@ -24,28 +27,25 @@
 	
 	// Load the user's videos
 	
-	$videos = simplexml_load_string(curl_get($api_endpoint.'channel/' . $channelid . '/videos.xml'));
+	$videos = simplexml_load_string($this->curl_get($api_endpoint.'channel/' . $channelid . '/videos.xml'));
 	//$info = simplexml_load_string(curl_get($api_endpoint . 'channel/' . $channel_id . '/info.xml'));
 	
-?>	
-	<ul class="mytubeListWrapper <?php echo $classColumns; ?> vimeoVid" >
-	<?php foreach ($videos->video as $video){
+	/** @Hook Refer function start_vimeo_wrapper */
+	do_action('mytube_vimeo_playlist_before');
+
+		foreach ($videos->video as $video){
 			$vID = $video->id;
 			$vTitle = $video->title;
-			$vDuration = formatSeconds($video->duration);
+			$vDuration = $this->formatSeconds($video->duration);
 			$vVideoViews = $video->stats_number_of_plays;
 			if($vVideoViews==""){$vVideoViews=0;}
 			$vThumbnail = $video->thumbnail_medium;
-	?>
-		<li>
-			<a <?php if($openType=="popup"){ ?>class="mytube" <?php }else { echo 'target="_blank"'; } ?> href="https://player.vimeo.com/video/<?php echo $vID; ?>" title="<?php echo $vTitle; ?> [<?php echo $vDuration; ?>] <?php ?>">
-				<img src="<?php echo $vThumbnail; ?>" width="320" height="180">
-				<?php echo $vTitle; ?>
-				<?php if($videoDuration=="yes"){ ?>[<?php echo $vDuration; ?>] <?php } ?>
-			</a>
-			<?php if($viewsCounter=="yes"){ ?> <span class="mytubeListView" title="<?php echo $vVideoViews; ?> Views"><?php echo $vVideoViews; ?></span> <?php } ?>
-		</li>
-	<?php } ?>
-	</ul>	
-<?php
+	
+			/** @Hook Refer function list_vimeo_data */
+			do_action('mytube_vimeo_playlist_data');
+		 } 
+		 
+	/** @Hook Refer function stop_wrapper */
+	do_action('mytube_youtube_playlist_after');	
+	
 /***** //Vimeo API *****/	

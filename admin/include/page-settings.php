@@ -1,16 +1,17 @@
 <?php
-	$icon_url = plugin_dir_url( __FILE__ ).'../assets/images/menu-icon.png';
-	$youtube_icon_url = plugin_dir_url( __FILE__ ).'../assets/images/youtube.gif';
-	$vimeo_icon_url = plugin_dir_url( __FILE__ ).'../assets/images/vimeo_icon.png'; 
-	$css_icon_url = plugin_dir_url( __FILE__ ).'../assets/images/css-24.ico'; 
 	
-	global $wpdb,$current_user,$plugin_dir_name,$num_rec_per_page,$loader;
+	global $wpdb,$current_user,$mtpl_plugin_dir_name,$mtpl_num_rec_per_page,$mtpl_loader,$mtpl_icon_url,$youtube_icon_url,$vimeo_icon_url,$css_icon_url;
 
+	$mtpl_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/menu-icon.png';
+	$youtube_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/youtube.gif';
+	$vimeo_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/vimeo_icon.png'; 
+	$css_icon_url = WP_PLUGIN_URL.'/'.$mtpl_plugin_dir_name.'/assets/images/css-24.ico'; 
+	
 	if (isset($_GET["ppage"])) { $ppage  = $_GET["ppage"]; } else { $ppage=1; }; 
 	
-	$start_from = ($ppage-1) * $num_rec_per_page; 
+	$start_from = ($ppage-1) * $mtpl_num_rec_per_page; 
 	/*$sql = "SELECT * 
-			FROM ".$wpdb->prefix."yl_videos LIMIT $start_from, $num_rec_per_page"; 
+			FROM ".$wpdb->prefix."yl_videos LIMIT $start_from, $mtpl_num_rec_per_page"; 
 	
 	$getVideos = $wpdb->get_results($sql);
 	*/
@@ -38,7 +39,7 @@
         
         <form action="?page=mytube_savedata" method="post" id="frmGlobalSettings">
         	<h2>
-            	<img src="<?php echo $icon_url; ?>" /> MyTube Global Settings
+            	<img src="<?php echo $mtpl_icon_url; ?>" /> MyTube Global Settings
             	<span class="h2RightSpanSection">
                 	<input type="submit" class="button button-primary" name="createNewPage" id="createNewPage" onclick="return check_before_install();" value="Create MyTube Pages" />
                 </span>

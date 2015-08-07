@@ -3,7 +3,7 @@ Contributors: tes-india
 Donate link: http://tes-india.com/
 Tags: Wordpress YouTube plugin, mytube, playlist, youtube, videolist
 Requires at least: 3.0
-Tested up to: 4.2.2
+Tested up to: 4.2.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,6 +17,11 @@ Displays awesome YouTube Videos in your posts, pages, and widgets. YouTube Embed
 * Light weight Plugin for displaying your PlayList Video
 * Responsive design
 * Using Shortcode display data in POST, PAGE, Widget, and also in your php file.
+* Override facilty
+
+= Override Method =
+
+* To override MyTube plugin, Copy "mytube override" folder from mytube plugin folder and Paste it your theme folder and then change on it with your requirement.
 
 = Short Code List =
 
@@ -37,12 +42,15 @@ Displays awesome YouTube Videos in your posts, pages, and widgets. YouTube Embed
 * Light weight Plugin for displaying your PlayList Video
 * Responsive design
 * Using Shortcode display data in POST, PAGE, Widget, and also in your php file.
+* Override facilty
 
 == Installation ==
 
 = Step-by-step installation documents =
 After downloading the plugin, you will find MyTube PlayList under Plugins.
 Activate your plugin in Wordpress by clicking on "Activate".
+
+= To override MyTube plugin, Copy "mytube override" folder from mytube plugin folder and Paste it your theme folder and then change on it with your requirement.
 
 = Configuring Plugin =
 
@@ -96,13 +104,15 @@ If have you any doubt then send mail frequently on raghu@tes-india.com
 
 == Changelog ==
 = 1.0.1 =
-Initial Version
+ Initial Version
 = 1.0.2 =
-Resolve Pagination Issue
+ Resolve Pagination Issue
 = 2.0.1 =
-Major Changes. Add More Functionality
-=2.0.2=
-Changes on activation and deactivation data
+ Major Changes. Add More Functionality
+= 2.0.2 =
+ Changes on activation and deactivation data
+= 2.0.3 =
+ Add Functionality for overriding
 
 == Upgrade Notice ==
 = 1.0.1 =
@@ -111,7 +121,10 @@ Changes on activation and deactivation data
  Updated version with pagination issue.
 = 2.0.1 =
  Updated version with more functionality.
-=2.0.2=
-Update activation and deactivation code.
+= 2.0.2 =
+ Update activation and deactivation code.
+= 2.0.3 =
+ Add Functionality for overriding MyTube front end listing data.
+
 
 * Initial release
